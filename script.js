@@ -37,20 +37,20 @@ rsvpForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
     // Get form values
-    const firstName = document.getElementById('firstName').value.trim();
-    const lastName = document.getElementById('lastName').value.trim();
+    const parentName = document.getElementById('parentName').value.trim();
+    const childName = document.getElementById('childName').value.trim();
     const attendance = document.getElementById('attendance').value;
     
     // Validate form
-    if (!firstName || !lastName || !attendance) {
+    if (!parentName || !childName || !attendance) {
         showMessage('Please fill in all fields.', 'error');
         return;
     }
     
     // Prepare form data
     const formData = {
-        firstName: firstName,
-        lastName: lastName,
+        parentName: parentName,
+        childName: childName,
         attendance: attendance,
         timestamp: new Date().toISOString()
     };
@@ -70,7 +70,7 @@ rsvpForm.addEventListener('submit', (e) => {
     .then(() => {
         // Show success message
         const attendanceText = attendance === 'yes' ? 'will be attending' : 'cannot attend';
-        showMessage(`Thank you, ${firstName}! We have received your RSVP. You ${attendanceText}.`, 'success');
+        showMessage(`Thank you! We have received your RSVP for ${childName}. You ${attendanceText}.`, 'success');
         
         // Reset form after 5 seconds
         setTimeout(() => {
