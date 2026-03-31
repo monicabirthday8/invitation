@@ -1,0 +1,723 @@
+/* ===========================
+   CSS Reset & Base Styles
+   =========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink-light: #fce4ec;
+    --pink-medium: #f8bbd0;
+    --pink-soft: #ffd6e7;
+    --cherry-red: #c62828;
+    --cherry-dark: #8e0000;
+    --white: #ffffff;
+    --cream: #fff5f7;
+    --text-dark: #5d4037;
+    --text-medium: #8d6e63;
+    --shadow-soft: rgba(198, 40, 40, 0.1);
+    --shadow-medium: rgba(198, 40, 40, 0.15);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-soft) 50%, var(--cream) 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===========================
+   Floating Cherry Decorations
+   =========================== */
+.cherry-decoration {
+    position: fixed;
+    font-size: 2rem;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.cherry-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.cherry-2 {
+    top: 25%;
+    right: 8%;
+    animation-delay: 1s;
+}
+
+.cherry-3 {
+    top: 50%;
+    left: 3%;
+    animation-delay: 2s;
+}
+
+.cherry-4 {
+    top: 70%;
+    right: 5%;
+    animation-delay: 3s;
+}
+
+.cherry-5 {
+    top: 85%;
+    left: 10%;
+    animation-delay: 4s;
+}
+
+.cherry-6 {
+    top: 40%;
+    right: 15%;
+    animation-delay: 2.5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+/* ===========================
+   Hero Section
+   =========================== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.invitation-card {
+    background: var(--white);
+    border-radius: 30px;
+    padding: 3rem 2rem;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 20px 60px var(--shadow-medium);
+    border: 3px solid var(--pink-medium);
+    position: relative;
+    animation: fadeInUp 1s ease-out;
+}
+
+.invitation-card::before {
+    content: '🍒';
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    font-size: 2rem;
+}
+
+.invitation-card::after {
+    content: '🍒';
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    font-size: 2rem;
+}
+
+.ribbon-bow {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--pink-medium) 0%, var(--pink-soft) 100%);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px var(--shadow-soft);
+}
+
+.ribbon-bow::before,
+.ribbon-bow::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    background: var(--pink-medium);
+    border-radius: 50% 50% 0 50%;
+    top: 20px;
+}
+
+.ribbon-bow::before {
+    left: -35px;
+    transform: rotate(-45deg);
+}
+
+.ribbon-bow::after {
+    right: -35px;
+    transform: rotate(45deg);
+}
+
+.card-content {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-medium);
+    margin-bottom: 0.5rem;
+}
+
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: var(--cherry-red);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.cherry-icon {
+    font-size: 4rem;
+    margin: 1.5rem 0;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.invitation-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text-medium);
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.name-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: var(--cherry-dark);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.welcome-message {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--text-medium);
+    max-width: 450px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* ===========================
+   Container & Sections
+   =========================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 5rem 0;
+    position: relative;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--cherry-dark);
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '🍒';
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+}
+
+/* ===========================
+   Event Details Section
+   =========================== */
+.event-details-section {
+    background: var(--white);
+    border-top: 3px solid var(--pink-medium);
+    border-bottom: 3px solid var(--pink-medium);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.detail-card {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+    border: 2px solid var(--pink-medium);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+.detail-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.detail-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.detail-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--cherry-red);
+    margin-bottom: 0.5rem;
+}
+
+.detail-card p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* ===========================
+   Photo Sections
+   =========================== */
+.photo-section {
+    background: transparent;
+}
+
+.photo-section-alt {
+    background: var(--white);
+    border-top: 3px solid var(--pink-medium);
+    border-bottom: 3px solid var(--pink-medium);
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.photo-placeholder {
+    position: relative;
+}
+
+.photo-frame {
+    background: var(--white);
+    border: 5px solid var(--pink-medium);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 10px 30px var(--shadow-soft);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+.placeholder-content {
+    text-align: center;
+    color: var(--text-medium);
+}
+
+.photo-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.placeholder-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+
+/* Large Photo Grid */
+.photo-grid-large {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.photo-placeholder-large,
+.photo-placeholder-small {
+    position: relative;
+}
+
+.photo-placeholder-large .photo-frame,
+.photo-placeholder-small .photo-frame {
+    aspect-ratio: 4/3;
+}
+
+.photo-grid-small {
+    display: contents;
+}
+
+/* ===========================
+   Celebration Section
+   =========================== */
+.celebration-section {
+    background: transparent;
+}
+
+.celebration-card {
+    background: var(--white);
+    border: 3px solid var(--pink-medium);
+    border-radius: 30px;
+    padding: 3rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 20px 60px var(--shadow-medium);
+    text-align: center;
+}
+
+.cherry-divider {
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    opacity: 0.7;
+}
+
+.celebration-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===========================
+   RSVP Section
+   =========================== */
+.rsvp-section {
+    background: var(--white);
+    border-top: 3px solid var(--pink-medium);
+}
+
+.rsvp-card {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+    border: 3px solid var(--pink-medium);
+    border-radius: 30px;
+    padding: 3rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 20px 60px var(--shadow-medium);
+}
+
+.rsvp-subtitle {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin-bottom: 2rem;
+}
+
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--cherry-dark);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    padding: 0.9rem 1.2rem;
+    border: 2px solid var(--pink-medium);
+    border-radius: 15px;
+    background: var(--white);
+    color: var(--text-dark);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--cherry-red);
+    box-shadow: 0 0 0 3px var(--shadow-soft);
+}
+
+.submit-button {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--cherry-red) 0%, var(--cherry-dark) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 0 5px 20px var(--shadow-medium);
+}
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px var(--shadow-medium);
+}
+
+.submit-button:active {
+    transform: translateY(-1px);
+}
+
+.form-message {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 15px;
+    display: none;
+}
+
+.form-message.success {
+    background: #c8e6c9;
+    color: #2e7d32;
+    border: 2px solid #4caf50;
+    display: block;
+}
+
+.form-message.error {
+    background: #ffcdd2;
+    color: #c62828;
+    border: 2px solid #f44336;
+    display: block;
+}
+
+/* ===========================
+   Footer
+   =========================== */
+.footer {
+    background: var(--white);
+    border-top: 3px solid var(--pink-medium);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.footer p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.footer-small {
+    font-size: 0.9rem !important;
+    color: var(--text-medium) !important;
+}
+
+/* ===========================
+   Animations
+   =========================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .name-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .invitation-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .detail-card {
+        padding: 1.5rem;
+    }
+
+    .celebration-card,
+    .rsvp-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .photo-grid-large {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-placeholder-large {
+        grid-row: span 1;
+    }
+
+    .cherry-decoration {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .cherry-icon {
+        font-size: 3rem;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero-section {
+        padding: 1rem;
+    }
+}
+
+/* ===========================
+   Background Cherry Decorations
+   =========================== */
+.bg-cherry {
+    position: absolute;
+    font-size: 1.2rem;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-cherry-1 { top: 150px; left: 8%; }
+.bg-cherry-2 { top: 280px; right: 12%; }
+.bg-cherry-3 { top: 420px; left: 15%; }
+.bg-cherry-4 { top: 580px; right: 7%; }
+.bg-cherry-5 { top: 750px; left: 22%; }
+.bg-cherry-6 { top: 920px; right: 18%; }
+.bg-cherry-7 { top: 1100px; left: 10%; }
+.bg-cherry-8 { top: 1280px; right: 25%; }
+.bg-cherry-9 { top: 1450px; left: 5%; }
+.bg-cherry-10 { top: 1620px; right: 15%; }
+.bg-cherry-11 { top: 1800px; left: 28%; }
+.bg-cherry-12 { top: 1980px; right: 10%; }
+.bg-cherry-13 { top: 2150px; left: 18%; }
+.bg-cherry-14 { top: 2320px; right: 22%; }
+.bg-cherry-15 { top: 2500px; left: 12%; }
+.bg-cherry-16 { top: 2680px; right: 8%; }
+.bg-cherry-17 { top: 2850px; left: 25%; }
+.bg-cherry-18 { top: 3020px; right: 20%; }
+.bg-cherry-19 { top: 3200px; left: 7%; }
+.bg-cherry-20 { top: 3380px; right: 13%; }
+.bg-cherry-21 { top: 3550px; left: 20%; }
+.bg-cherry-22 { top: 3720px; right: 16%; }
+.bg-cherry-23 { top: 3900px; left: 14%; }
+.bg-cherry-24 { top: 4080px; right: 11%; }
+.bg-cherry-25 { top: 4250px; left: 9%; }
+.bg-cherry-26 { top: 220px; right: 20%; }
+.bg-cherry-27 { top: 380px; left: 6%; }
+.bg-cherry-28 { top: 520px; right: 24%; }
+.bg-cherry-29 { top: 680px; left: 17%; }
+.bg-cherry-30 { top: 840px; right: 9%; }
+.bg-cherry-31 { top: 1000px; left: 23%; }
+.bg-cherry-32 { top: 1180px; right: 14%; }
+.bg-cherry-33 { top: 1350px; left: 11%; }
+.bg-cherry-34 { top: 1520px; right: 19%; }
+.bg-cherry-35 { top: 1700px; left: 8%; }
+.bg-cherry-36 { top: 1880px; right: 26%; }
+.bg-cherry-37 { top: 2050px; left: 16%; }
+.bg-cherry-38 { top: 2220px; right: 12%; }
+.bg-cherry-39 { top: 2400px; left: 21%; }
+.bg-cherry-40 { top: 2580px; right: 17%; }
+.bg-cherry-41 { top: 2750px; left: 10%; }
+.bg-cherry-42 { top: 2920px; right: 23%; }
+.bg-cherry-43 { top: 3100px; left: 13%; }
+.bg-cherry-44 { top: 3280px; right: 9%; }
+.bg-cherry-45 { top: 3450px; left: 24%; }
+.bg-cherry-46 { top: 3620px; right: 15%; }
+.bg-cherry-47 { top: 3800px; left: 19%; }
+.bg-cherry-48 { top: 3980px; right: 21%; }
+.bg-cherry-49 { top: 4150px; left: 7%; }
+.bg-cherry-50 { top: 4320px; right: 14%; }
