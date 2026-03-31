@@ -25,11 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===========================
-// RSVP Form Handling
+// RSVP Form Handling with Google Sheets
 // ===========================
 
 const rsvpForm = document.getElementById('rsvpForm');
 const formMessage = document.getElementById('formMessage');
+
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyNuELMjW7H07PLYOM8NntrUoQ1_xDkag-PSdRlVUe6iS5G7NMTp8sfegq7AGBY3SpAYA/exec';
 
 rsvpForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -45,7 +47,7 @@ rsvpForm.addEventListener('submit', (e) => {
         return;
     }
     
-    // Prepare form data for future Google Sheets integration
+    // Prepare form data
     const formData = {
         firstName: firstName,
         lastName: lastName,
@@ -53,25 +55,11 @@ rsvpForm.addEventListener('submit', (e) => {
         timestamp: new Date().toISOString()
     };
     
-    // Log form data (for testing - will be replaced with Google Sheets API call)
-    console.log('RSVP Form Data:', formData);
+    // Show loading message
+    showMessage('Sending your RSVP...', 'success');
     
-    // Show success message
-    const attendanceText = attendance === 'yes' ? 'will be attending' : 'cannot attend';
-    showMessage(`Thank you, ${firstName}! We have received your RSVP. You ${attendanceText}.`, 'success');
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-        rsvpForm.reset();
-        hideMessage();
-    }, 5000);
-    
-    // TODO: When ready to integrate with Google Sheets, add the following:
-    // 1. Create a Google Apps Script web app
-    // 2. Replace the console.log with a fetch call to the Google Apps Script URL
-    // Example:
-    /*
-    fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+    // Send to Google Sheets
+    fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -80,7 +68,11 @@ rsvpForm.addEventListener('submit', (e) => {
         body: JSON.stringify(formData)
     })
     .then(() => {
-        showMessage(`Thank you, ${firstName}! We have received your RSVP.`, 'success');
+        // Show success message
+        const attendanceText = attendance === 'yes' ? 'will be attending' : 'cannot attend';
+        showMessage(`Thank you, ${firstName}! We have received your RSVP. You ${attendanceText}.`, 'success');
+        
+        // Reset form after 5 seconds
         setTimeout(() => {
             rsvpForm.reset();
             hideMessage();
@@ -90,7 +82,6 @@ rsvpForm.addEventListener('submit', (e) => {
         console.error('Error:', error);
         showMessage('Sorry, there was an error submitting your RSVP. Please try again.', 'error');
     });
-    */
 });
 
 // Show message function
@@ -183,6 +174,4 @@ window.addEventListener('load', () => {
 // ===========================
 
 console.log('%c🍒 Welcome to Monica\'s 8th Birthday Party! 🍒', 'color: #c62828; font-size: 20px; font-weight: bold;');
-console.log('%cThis website is ready for Google Sheets integration.', 'color: #8d6e63; font-size: 14px;');
-console.log('%cForm data structure:', 'color: #8d6e63; font-size: 12px;');
-console.log('{ firstName, lastName, attendance, timestamp }');
+console.log('%cRSVP form is connected to Google Sheets!', 'color: #8d6e63; font-size: 14px;');
