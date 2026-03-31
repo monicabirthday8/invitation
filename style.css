@@ -324,74 +324,74 @@ section {
     border-bottom: 3px solid var(--pink-medium);
 }
 
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+.photo-block {
     max-width: 1000px;
     margin: 0 auto;
-}
-
-.photo-placeholder {
-    position: relative;
-}
-
-.photo-frame {
-    background: var(--white);
-    border: 5px solid var(--pink-medium);
-    border-radius: 15px;
-    padding: 1rem;
-    box-shadow: 0 10px 30px var(--shadow-soft);
-    aspect-ratio: 4/3;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.photo-row-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.photo-row-bottom {
+    display: block;
+}
+
+.photo-vertical,
+.photo-horizontal {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-soft);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.photo-frame:hover {
-    transform: scale(1.05);
+.photo-vertical:hover,
+.photo-horizontal:hover {
+    transform: scale(1.02);
     box-shadow: 0 15px 40px var(--shadow-medium);
 }
 
-.placeholder-content {
-    text-align: center;
-    color: var(--text-medium);
+.photo-vertical {
+    aspect-ratio: 3/4;
 }
 
-.photo-icon {
-    font-size: 3rem;
+.photo-horizontal {
+    aspect-ratio: 16/9;
+}
+
+.photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    margin-bottom: 0.5rem;
+    border: 5px solid var(--pink-medium);
+    border-radius: 15px;
 }
 
-.placeholder-content p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    color: var(--text-medium);
-}
-
-/* Large Photo Grid */
-.photo-grid-large {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.photo-placeholder-large,
-.photo-placeholder-small {
-    position: relative;
-}
-
-.photo-placeholder-large .photo-frame,
-.photo-placeholder-small .photo-frame {
-    aspect-ratio: 4/3;
-}
-
-.photo-grid-small {
-    display: contents;
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .photo-row-top {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .photo-block {
+        gap: 1rem;
+    }
+    
+    .photo-vertical {
+        aspect-ratio: 3/4;
+    }
+    
+    .photo-horizontal {
+        aspect-ratio: 16/9;
+    }
 }
 
 /* ===========================
