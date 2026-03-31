@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const rsvpForm = document.getElementById('rsvpForm');
 const formMessage = document.getElementById('formMessage');
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyNuELMjW7H07PLYOM8NntrUoQ1_xDkag-PSdRlVUe6iS5G7NMTp8sfegq7AGBY3SpAYA/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmMTYGxYJJgCHmYn8cvF7DwHB0Kyl3SEc8-OYe6z9retpfMwtYaT2IfWg3-kcWW1hl5w/exec';
 
 rsvpForm.addEventListener('submit', (e) => {
     e.preventDefault();
