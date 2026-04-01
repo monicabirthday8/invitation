@@ -297,6 +297,15 @@ section {
     margin-bottom: 1rem;
 }
 
+.detail-icon .icon-img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+    background: transparent;
+}
+
 .detail-card h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
